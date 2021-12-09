@@ -39,6 +39,11 @@ var getUserRepos = function(user) {
 // this function will accept both the array of repository data and the term we searched for as parameters
 var displayRepos = function(repos, searchTerm) {
     
+    // create a link for each repo
+    var repoEl = document.createElement("a");
+    repoEl.classList = "list-item flex-row justify-space-between align-center";
+    repoEl.setAttribute("href", "./single-repo.html?repo=" + repoName);
+    
     // check if api returned any repos - check for empty arrays and let's the user know if there's nothing to display
     if (repos.length === 0) {
         repoContainerEl.textContent = "No repositories found.";
@@ -54,9 +59,10 @@ var displayRepos = function(repos, searchTerm) {
         // format repo name
         var repoName = repos[i].owner.login + "/" + repos[i].name;
 
-        // create a container for each repo
-        var repoEl = document.createElement("div");
+        // create a container for each repo - convert the list of repos into a list of links
+        var repoEl = document.createElement("a");
         repoEl.classList = "list-item flex-row justify-space-between align-center";
+        repoEl.setAttribute("href", "./single-repo.html")
         
         // create a span element to hold repository name
         var titleEl = document.createElement("span");

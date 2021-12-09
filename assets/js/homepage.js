@@ -82,9 +82,9 @@ var displayRepos = function(repos, searchTerm) {
     }
 
     // when the response data is converted to JSON, it will be sent from getUserRepos() to displayRepos()
-    response.json().then(function(data) {
-        displayRepos(data, user);
-    });
+    // response.json().then(function(data) {
+    // displayRepos(data, user);
+    // });
     
 };
 
@@ -102,7 +102,7 @@ var formSubmitHandler = function(event) {
         // clear old content
         repoContainerEl.textContent = "";
         nameInputEl.value = "";
-        repoSearchTerm.textContent = searchTerm;
+        // repoSearchTerm.textContent = searchTerm;
     } else {
         alert("Please enter a Github username");
     }
